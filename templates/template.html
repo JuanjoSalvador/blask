@@ -20,29 +20,32 @@
     </header>
     <div class="container container-fluid" id="content">
         <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-8">
+            
+            <h2>{{ title }}</h2>
+
             <div class="meta">
                 {% if  date %}
-                    <small class="date">Published on: {{date}}</small><br/>
+                    <small class="date">Published on: {{ date }}</small><br/>
                 {% endif %}
 
                 {% if author %}
-                <small class="author">Published by <a href="/author/{{author}}">{{author}}</a></small>
+                    <small class="author">Posted by <a href="/author/{{author}}">{{ author }}</a></small>
                 {% endif %}
             </div>
-
 
             {{content|safe}}
 
             <div class="meta">
                 {% if category %}
                     <small class="category">
-                        Category: <a href="/category/{{category}}">{{category}}</a>
+                        Category: <a href="/category/{{category}}">{{ category }}</a>
                     </small><br/>
                 {% endif %}
 
                 {% if tags %}
                     <small class="tags">
+                        Tags: 
                         {% for tag in tags %}
                             <a href="/tag/{{tag}}">{{tag}}</a>
                         {% endfor %}
@@ -50,7 +53,7 @@
                 {% endif %}
             </div>
         </div>
-        <aside class="col-md-3">
+        <aside class="col-md-4">
             <div class="aside-block">
                 <form method="POST" action="/search">
                     <div class="input-group mb-2">
