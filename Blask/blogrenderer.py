@@ -148,7 +148,7 @@ class BlogEntry:
     """Name of the template file"""
     name = None
     """ Name of the post"""
-    title = None
+    postTitle = None
     """ Title of the post"""
 
     def __init__(self, name, md, content):
@@ -161,6 +161,7 @@ class BlogEntry:
         self.content = md.convert(content)
         self.name = name
         meta = md.Meta
+
         if meta:
             self.date = datetime.strptime(meta['date'][0], '%Y-%m-%d')
             self.tags = meta['tags'][0].split(',')
@@ -170,9 +171,9 @@ class BlogEntry:
                 self.category = meta['category'][0]
             if 'author' in meta.keys():
                 self.author = meta['author'][0]
-            if 'title' in meta.keys():
-                self.title = meta['title'][0]
-
+            if 'posttitle' in meta.keys():
+                self.postTitle = meta['posttitle'][0]
+                
     def __str__(self):
         """
         Convert this object to String
@@ -182,6 +183,7 @@ class BlogEntry:
         string += "'date': {}, 'tags':[{}], ".format(self.date, self.tags)
         string += "'author': {}, 'category': {}, ".format(self.author,
                                                           self.category)
-        string += "'template': {}]".format(self.template)
+        string += "'template': {}".format(self.template)
+        string += "'posttitle': {}]".format(self.postTitle)
 
         return string
