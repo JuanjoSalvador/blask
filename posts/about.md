@@ -4,8 +4,8 @@ template: template.html
 tags: about,blask
 category: page
 author: zerasul
+title: About
 ---
-# About
 
 Blask is a simple Blogging engine that uses the Flask MicroFramework to render a blog, and uses MarkDown to render the posts
 information. With Blask, it is very easy to create a blog using only HTML and Markdown. Also, the rendering happens
